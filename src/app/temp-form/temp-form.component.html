@@ -1,0 +1,118 @@
+<div class="container">
+    <h2>Student Form</h2>
+    <div class="card fade-in">
+      <div class="card-body">
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control"  name="name" [(ngModel)]="body.name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" [(ngModel)]="body.age" placeholder="Enter your age" required>
+          </div>
+
+          <div class="form-group">
+            <label>Gender:</label>
+            <div class="form-check">
+              <input type="radio" id="male" name="genderId" value="1" [(ngModel)]="body.genderId" class="form-check-input" required>
+              <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="female" name="genderId" value="2" [(ngModel)]="body.genderId" class="form-check-input" required>
+              <label for="female" class="form-check-label">Female</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="other" name="genderId" value="3" [(ngModel)]="body.genderId" class="form-check-input" required>
+              <label for="other" class="form-check-label">Other</label>
+            </div>
+          </div>
+          
+          <!-- <div class="form-group" name="skills">
+            <label for="skills">Skills:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="html" value="html">
+              <label class="form-check-label" for="html">HTML</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="css" value="css">
+              <label class="form-check-label" for="css">CSS</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="js" value="js">
+              <label class="form-check-label" for="js">JavaScript</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+          </div> -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="body.email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" class="form-control" name="phone" [(ngModel)]="body.phone" id="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="university">University:</label>
+            <select class="form-control" id="university" name="university" [(ngModel)]="body.universityId" required>
+              <option disabled>Select your university</option>
+              <option value="1">Madras University</option>
+              <option value="2">Bharathiyar University</option>
+              <option value="3">Alagappa University</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="major">Major:</label>
+            <select class="form-control" id="major" name="major" [(ngModel)]="body.majorId"  required>
+              <option disabled>Select your major</option>
+              <option value="1">Computer Science</option>
+              <option value="2">IT</option>
+              <option value="3">EEE</option>
+            </select>
+          </div>
+          <button (click)="postData()" class="btn btn-primary my-3">Submit</button>
+          <button (click)="updateData()" class="btn btn-primary my-3">Update</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+{{body | json}}
+
+<table>
+  <thead>
+     <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Age</th>
+       <th>Gender</th>
+       <th>Email</th>
+       <th>Phone</th>
+       <th>University</th>
+       <th>Major</th>
+       <th>Action</th>
+     </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of viewData">
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.gender}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.phone}}</td>
+      <td>{{i.university}}</td>
+      <td>{{i.major}}</td>
+      <td>
+        <div>
+          <button (click)="editData(i.id)" class="btn btn-primary mx-3">Edit</button>
+          <button (click)="deleteData(i.id)" class="btn btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  

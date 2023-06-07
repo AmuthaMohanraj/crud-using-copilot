@@ -1,0 +1,19 @@
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+
+  router-outlet {
+    margin-top: 20px;
+  }

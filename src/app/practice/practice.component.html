@@ -1,0 +1,133 @@
+<p>practice works!</p>
+
+<h2>Method 1</h2>
+<form #myForm="ngForm">
+
+  <div class="form-group">
+    <label for="">Name</label>
+    <input class="form-control" name="name" ngModel type="text" >
+  </div>
+
+  <div class="form-group">
+    <label for="">Age</label>
+    <input class="form-control" name="age" ngModel type="text" >
+  </div>
+
+  <div class="form-group">
+    <label for="">Gender</label>
+    <select ngModel name="sex" >
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="transgender">TransGender</option>
+    </select>
+  </div>
+
+  <div>
+    Child<input type="radio" name="check" value="child" ngModel  id="">
+    Youth<input type="radio" name="check" value="youth" ngModel id="">
+    Grand<input type="radio" name="check" value="grand" ngModel id="">
+  </div>
+
+  <div>
+    <label for="">Skills</label>
+    HTML<input type="checkbox" name="html"   ngModel value="html" id="">
+    CSS<input type="checkbox" name="css"     ngModel value="css" id="">
+    JS<input type="checkbox" name="js"       ngModel value="js" id="">
+    .NET<input type="checkbox" name=".net"   ngModel value=".net" id="">
+  </div>
+
+
+
+  {{myForm.value|json}}
+
+  <button (click)="fun(myForm.value)" >Click</button>
+
+</form>
+
+
+<h2>Method 2</h2>
+
+<form #myForm="ngForm">
+
+  <div class="form-group">
+    <label for="">Name</label>
+    <input class="form-control" name="name" [(ngModel)]="name" type="text" >
+  </div>
+
+  <div class="form-group">
+    <label for="">Age</label>
+    <input class="form-control" name="age" [(ngModel)]="age" type="text" >
+  </div>
+
+  <div class="form-group">
+    <label for="">Gender</label>
+    <select [(ngModel)]="gender" name="sex" >
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="transgender">TransGender</option>
+    </select>
+  </div>
+
+  <div>
+    Child<input type="radio" name="check" value="child" [(ngModel)]="check"  id="">
+    Youth<input type="radio" name="check" value="youth" [(ngModel)]="check" id="">
+    Grand<input type="radio" name="check" value="grand" [(ngModel)]="check" id="">
+  </div>
+
+  <div>
+    <label for="">Skills</label>
+    HTML<input type="checkbox" name="html"   [(ngModel)]="html" value="html" id="">
+    CSS<input type="checkbox" name="css"     [(ngModel)]="css" value="css" id="">
+    JS<input type="checkbox" name="js"       [(ngModel)]="js" value="js" id="">
+    .NET<input type="checkbox" name=".net"  [(ngModel)]="dotnet" value=".net" id="">
+  </div>
+
+{{name}}
+{{age}}
+{{check}}
+{{gender}}
+{{html}}
+
+</form>
+
+<!-- method 3 -->
+<h2>Method 3</h2>
+<form #myForm1="ngForm">
+
+  <div class="form-group">
+    <label for="">Name</label>
+    <input class="form-control" name="name" [(ngModel)]="data.name" type="text" >
+  </div>
+
+  <div class="form-group">
+    <label for="">Age</label>
+    <input class="form-control" name="age" [(ngModel)]="data.age" type="text" >
+  </div>
+
+  <div class="form-group">
+    <label for="">Gender</label>
+    <select [(ngModel)]="data.gender" name="sex" >
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="transgender">TransGender</option>
+    </select>
+  </div>
+
+  <div>
+    Child<input type="radio" name="check" value="child" [(ngModel)]="data.check"  id="">
+    Youth<input type="radio" name="check" value="youth" [(ngModel)]="data.check" id="">
+    Grand<input type="radio" name="check" value="grand" [(ngModel)]="data.check" id="">
+  </div>
+
+  <div>
+    <label for="">Skills</label>
+    HTML<input type="checkbox" name="html"   [(ngModel)]="data.html" value="html" id="">
+    CSS<input type="checkbox" name="css"     [(ngModel)]="data.css" value="css" id="">
+    JS<input type="checkbox" name="js"       [(ngModel)]="data.js" value="js" id="">
+    .NET<input type="checkbox" name=".net"  [(ngModel)]="data.dotnet" value=".net" id="">
+  </div>
+
+  <input type="submit" value="Clear" (click)="resetForm(myForm1)">
+</form>
+
+{{data|json}}

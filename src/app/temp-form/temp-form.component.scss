@@ -1,0 +1,53 @@
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-group {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-primary {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+  thead{
+    background-color:brown;
+    color: #fff;
+
+    th{
+      padding: 10px;
+      text-align: center;
+    }
+
+  }
+
+  tbody{
+    background-color: #fff;
+  }
+
+  td{
+    padding: 10px;
+    text-align: center;
+  }
+
+
+  }
+  
