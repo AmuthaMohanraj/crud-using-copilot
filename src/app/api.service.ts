@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Data } from './data';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ constructor(private http: HttpClient) { }
 
 // getDataById
   getDataById(id:number) {
-    return this.http.get<IupdateStudent[]>('http://localhost:3000/studentById/'+id);
+    return this.http.get<IupdateStudent>('http://localhost:3000/studentById/'+id);
   }
 
 // postData
@@ -33,6 +34,26 @@ constructor(private http: HttpClient) { }
     return this.http.put<IdeleteStudent[]>('http://localhost:3000/deleteStudent',data);
   }
 
+  // getGender
+  getGender() {
+    return this.http.get<IgenderData[]>('http://localhost:3000/genderData');
+  }
+
+  // getUniversity
+  getUniversity() {
+    return this.http.get<IuniversityData[]>('http://localhost:3000/universityData');
+  }
+
+  // getMajor
+  getMajor() {
+    return this.http.get<ImajorData[]>('http://localhost:3000/majorData');
+  }
+
+  // getSkill
+  getSkill() {
+    return this.http.get<IskillData[]>('http://localhost:3000/skillData');
+  }
+  
 }
 
 // create interface for view student
@@ -64,6 +85,7 @@ export interface IupdateStudent{
   name: string;
   age: number;
   genderId:number;
+  skills:Array<number>;
   email: string;
   phone: string;
   universityId:number;
@@ -75,6 +97,28 @@ export interface IdeleteStudent{
   id:number;
 }
 
- 
+// genderData interface
+export interface IgenderData{
+   id:number;
+   gender:string;
+}
+
+// universityData interface
+export interface IuniversityData{
+  id:number;
+  university:string;
+}
+
+// majorData interface
+export interface ImajorData{
+  id:number;
+  major:string;
+}
+
+//  skillData interface
+export interface IskillData{
+  id:number;
+  skill:string;
+}
 
 

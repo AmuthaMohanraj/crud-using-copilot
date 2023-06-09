@@ -14,36 +14,21 @@
 
           <div class="form-group">
             <label>Gender:</label>
-            <div class="form-check">
-              <input type="radio" id="male" name="genderId" value="1" [(ngModel)]="body.genderId" class="form-check-input" required>
-              <label for="male" class="form-check-label">Male</label>
-            </div>
-            <div class="form-check">
-              <input type="radio" id="female" name="genderId" value="2" [(ngModel)]="body.genderId" class="form-check-input" required>
-              <label for="female" class="form-check-label">Female</label>
-            </div>
-            <div class="form-check">
-              <input type="radio" id="other" name="genderId" value="3" [(ngModel)]="body.genderId" class="form-check-input" required>
-              <label for="other" class="form-check-label">Other</label>
+            <div *ngFor="let i of genderData" class="form-check">
+              <input type="radio" id="i.gender" name="genderId" [value]="i.id" [(ngModel)]="body.genderId" class="form-check-input" required>
+              <label for="i.gender" class="form-check-label">{{i.gender}}</label> 
             </div>
           </div>
           
-          <!-- <div class="form-group" name="skills">
+           <div class="form-group" name="skills">
             <label for="skills">Skills:</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="html" value="html">
-              <label class="form-check-label" for="html">HTML</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="css" value="css">
-              <label class="form-check-label" for="css">CSS</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="js" value="js">
-              <label class="form-check-label" for="js">JavaScript</label>
+            <div *ngFor="let i of skillData" class="form-check">
+              <input class="form-check-input" type="checkbox" id="i.skill" [value]="i.id" (change)="toggleSkillSelection(i.id)">
+              <label class="form-check-label" for="i.skill">{{i.skill}}</label>
             </div>
           </div>
-          <div class="form-group">
+
+         <!-- <div class="form-group">
             <label for="address">Address:</label>
             <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
           </div> -->
@@ -59,22 +44,18 @@
             <label for="university">University:</label>
             <select class="form-control" id="university" name="university" [(ngModel)]="body.universityId" required>
               <option disabled>Select your university</option>
-              <option value="1">Madras University</option>
-              <option value="2">Bharathiyar University</option>
-              <option value="3">Alagappa University</option>
+              <option *ngFor="let i of universityData " [value]="i.id">{{i.university}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="major">Major:</label>
             <select class="form-control" id="major" name="major" [(ngModel)]="body.majorId"  required>
               <option disabled>Select your major</option>
-              <option value="1">Computer Science</option>
-              <option value="2">IT</option>
-              <option value="3">EEE</option>
+              <option *ngFor="let i of majorData" [value]="i.id">{{i.major}}</option>
             </select>
           </div>
-          <button (click)="postData()" class="btn btn-primary my-3">Submit</button>
-          <button (click)="updateData()" class="btn btn-primary my-3">Update</button>
+          <button *ngIf="btnHide" (click)="postData(myForm)" class="btn btn-primary my-3">Submit</button>
+          <button *ngIf="!btnHide" (click)="updateData(myForm)" class="btn btn-primary my-3">Update</button>
         </form>
       </div>
     </div>
